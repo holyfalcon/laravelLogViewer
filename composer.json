@@ -1,5 +1,5 @@
 {
-    "name": "falcon/logviewer",
+    "name": "holyfalcon/logviewer",
     "description": "organized logs",
     "type": "library",
     "license": "MIT",
