@@ -8,6 +8,11 @@
             "Falcon\\Logviewer\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Falcon\\Logviewer\\Test\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "shahin",
@@ -15,7 +20,15 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {},
+    "require": {
+        "php": "^8.0",
+        "psr/log": "^2.0 || ^3.0",
+        "monolog/monolog": "^3.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.23|^7.0|^8.0",
+        "phpunit/phpunit": "^9.4"
+    },
     "extra": {
         "laravel": {
             "providers": [
