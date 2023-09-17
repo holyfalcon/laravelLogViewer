@@ -1,0 +1,26 @@
+{
+    "name": "falcon/logviewer",
+    "description": "organized logs",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Falcon\\Logviewer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "shahin",
+            "email": "sh.bozorgi@phinix.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Falcon\\Logviewer\\LogviewerServiceProvider"
+            ]
+        }
+    }
+}
