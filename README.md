@@ -10,11 +10,11 @@ This makes the log list not dependent on the file, and if the size of the log fi
 ## Install package
 Install via composer
 ```bash
-composer require holyfalcon/laravelLogViewer
+composer require holyfalcon/logviewer
 ```
 Add Service Provider to `config/app.php` in `providers` section
 ```php
-Falcon\Logviewer\LogviewerServiceProvider::class,,
+Falcon\Logviewer\LogviewerServiceProvider::class,
 ```
 To get the log in real time we should define new channel in `config/logging.php` inside `channels` array below of `stack` channel
 ```php
