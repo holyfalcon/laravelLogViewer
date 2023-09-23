@@ -1,0 +1,147 @@
+name: PHPUnit (php-actions)
+description: Run your PHPUnit tests in your Github Actions.
+
+inputs:
+  version:
+    description: What version of PHPUnit to use
+    default: latest
+    required: false
+
+  php_version:
+    description: What version of PHP to use
+    default: latest
+    required: false
+
+  php_extensions:
+    description: Space separated list of extensions to configure with the PHP build
+    required: false
+
+  vendored_phpunit_path:
+    description: Path to a vendored phpunit binary
+    required: false
+
+  configuration:
+    description: Configuration file location
+    required: false
+
+  log_junit:
+    description: JUnit output file location
+    required: false
+
+  log_teamcity:
+    description: JUnit output file location
+    required: false
+
+  testdox_html:
+    description: Write documentation in HTML format to file
+    required: false
+
+  testdox_text:
+    description: Write documentation in Text format to file
+    required: false
+
+  memory_limit:
+    description: Memory limit
+    required: false
+
+  bootstrap:
+    description: Path to bootstrap file
+    required: false
+
+  filter:
+    description: Filter which tests to run
+    required: false
+
+  testsuite:
+    description: Specify a testsuite to run
+    required: false
+
+  group:
+    description: Only runs tests from the specified group(s)
+    required: false
+
+  exclude_group:
+    description: Exclude tests from the specified group(s)
+    required: false
+
+  test_suffix:
+    description: Only search for test in files with specified suffix(es)
+    required: false
+    default: Test.php,.phpt
+
+  whitelist:
+    description: Path to directory to whitelist for code coverage analysis
+    required: false
+
+  coverage_clover:
+    description: Generate code coverage report in Clover XML format
+    required: false
+
+  coverage_cobertura:
+    description: Generate code coverage report in Cobertura XML format
+    required: false
+
+  coverage_crap4j:
+    description: Generate code coverage report in Crap4J XML format
+    required: false
+
+  coverage_html:
+    description: Generate code coverage report in HTML format
+    required: false
+
+  coverage_php:
+    description: Export PHP_CodeCoverage object to file
+    required: false
+
+  coverage_text:
+    description: Generate code coverage report in text format (true to output to console, path to output to file)
+    required: false
+
+  coverage_xml:
+    description: Generate code coverage report in PHPUnit XML format
+    required: false
+
+  args:
+    description: Extra arguments to pass to the phpunit binary
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - env:
+        ACTION_TOKEN: ${{ github.token }}
+        ACTION_VERSION: ${{ inputs.version }}
+        ACTION_PHP_VERSION: ${{ inputs.php_version }}
+        ACTION_PHP_EXTENSIONS: ${{ inputs.php_extensions }}
+        ACTION_PHPUNIT_PATH: ${{ inputs.vendored_phpunit_path }}
+        ACTION_CONFIGURATION: ${{ inputs.configuration }}
+        ACTION_LOG_JUNIT: ${{ inputs.log_junit }}
+        ACTION_TESTDOX_HTML: ${{ inputs.testdox_html }}
+        ACTION_TESTDOX_TEXT: ${{ inputs.testdox_text }}
+        ACTION_BOOTSTRAP: ${{ inputs.bootstrap }}
+        ACTION_FILTER: ${{ inputs.filter }}
+        ACTION_TESTSUITE: ${{ inputs.testsuite }}
+        ACTION_GROUP: ${{ inputs.group }}
+        ACTION_EXCLUDE_GROUP: ${{ inputs.exclude_group }}
+        ACTION_TEST_SUFFIX: ${{ inputs.test_suffix }}
+        ACTION_WHITELIST: ${{ inputs.whitelist }}
+        ACTION_MEMORY_LIMIT: ${{ inputs.memory_limit }}
+        ACTION_COVERAGE_CLOVER: ${{ inputs.coverage_clover }}
+        ACTION_COVERAGE_COBERTURA: ${{ inputs.coverage_cobertura }}
+        ACTION_COVERAGE_CRAP4J: ${{ inputs.coverage_crap4j }}
+        ACTION_COVERAGE_HTML: ${{ inputs.coverage_html }}
+        ACTION_COVERAGE_PHP: ${{ inputs.coverage_php }}
+        ACTION_COVERAGE_TEXT: ${{ inputs.coverage_text }}
+        ACTION_COVERAGE_XML: ${{ inputs.coverage_xml }}
+        ACTION_ARGS: ${{ inputs.args }}
+
+      id: phpunit_run
+      run: |
+        set -e
+        bash <(curl -s https://raw.githubusercontent.com/php-actions/php-build/cee5b9fa9fbc4c888e7a62bbb7b8eade18e3c56b/php-build.bash) phpunit
+        ${{ github.action_path }}/phpunit-action.bash
+      shell: bash
+
+branding:
+  icon: 'check-square'
+  color: 'purple'
