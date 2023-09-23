@@ -4,35 +4,24 @@
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Action</th>
+            <th>Date</th>
+            <th>Level</th>
+            <th>Channel</th>
+            <th style="width: 70%">Content</th>
         </tr>
         </thead>
         <tbody>
-        <tr class="table-active">...</tr>
-
-        <tr class="table-primary">...</tr>
-        <tr class="table-secondary">...</tr>
-        <tr class="table-success">...</tr>
-        <tr class="table-danger">...</tr>
-        <tr class="table-warning">...</tr>
-        <tr class="table-info">...</tr>
-        <tr class="table-light">...</tr>
-        <tr class="table-dark">...</tr>
-
-        <!-- On cells (`td` or `th`) -->
-        <tr>
-            <td class="table-active">...</td>
-
-            <td class="table-primary">...</td>
-            <td class="table-secondary">...</td>
-            <td class="table-success">...</td>
-            <td class="table-danger">...</td>
-            <td class="table-warning">...</td>
-            <td class="table-info">...</td>
-            <td class="table-light">...</td>
-            <td class="table-dark">...</td>
-        </tr>
+        @foreach($logs as $log)
+            <tr>
+                <td class="table-active">{{$log->date}}</td>
+                <td class="table-active">{{$log->level}}</td>
+                <td class="table-active">{{$log->channel}}</td>
+                <td class="table-active">{{$log->content}}</td>
+            </tr>
+        @endforeach
         </tbody>
     </table>
+    <div class="d-flex justify-content-center" style="margin-top: 10px;">
+        {!! $logs->withQueryString()->links() !!}
+    </div>
 @endsection
