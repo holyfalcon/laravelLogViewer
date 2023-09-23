@@ -2,7 +2,7 @@
 
 namespace Falcon\Logviewer;
 
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class LogViewerTest extends TestCase
 {
