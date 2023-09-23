@@ -36,6 +36,10 @@ Add this `log-viewer` in channels of `stack`
             'ignore_exceptions' => false,
         ],
 ```
+Migrate logs table for storing records:
+```php
+php artisan migrate
+```
 Now you can publish the views by the artisan command:
 ```bash
 php artisan vendor:publish --tag=views
