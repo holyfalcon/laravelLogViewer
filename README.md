@@ -1,5 +1,5 @@
 # laravel Log Viewer
-
+[![License](https://img.shields.io/github/license/holyfalcon/laravelLogViewer)](https://github.com/holyfalcon/laravelLogViewer)
 [![Latest Stable Version](https://img.shields.io/packagist/v/holyfalcon/logviewer)](https://packagist.org/packages/holyfalcon/logviewer)
 [![PHP version](https://img.shields.io/packagist/dependency-v/holyfalcon/logviewer/php.svg)](https://packagist.org/packages/holyfalcon/logviewer)
 [![Build Status](https://img.shields.io/github/stars/holyfalcon/laravelLogViewer)](https://github.com/holyfalcon/laravelLogViewer)
