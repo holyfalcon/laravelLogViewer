@@ -1,5 +1,9 @@
 # laravel Log Viewer
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/holyfalcon/logviewer)](https://packagist.org/packages/holyfalcon/logviewer)
+[![PHP version](https://img.shields.io/packagist/dependency-v/holyfalcon/logviewer/php.svg)](https://packagist.org/packages/holyfalcon/logviewer)
+[![Build Status](https://img.shields.io/github/stars/holyfalcon/laravelLogViewer)](https://github.com/holyfalcon/laravelLogViewer)
+
 This package gives you a list of project logs. You can regularly check the log content with the time and level of that
 log in separate records.
 
