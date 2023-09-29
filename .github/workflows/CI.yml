@@ -7,6 +7,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - uses: php-actions/composer@v6
+      - name: Checkout Code
+        uses: actions/checkout@v2
+ 
+      - name: Install composer and dependencies
+        uses: php-actions/composer@v6
+
+      - name: PHPStan Static Analysis
+        run: vendor/bin/phpstan analyse src tests
+
+      - name: Check coding standards
+        run: vendor/bin/phpcs src
+
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
 
